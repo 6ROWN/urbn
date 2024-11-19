@@ -1,14 +1,16 @@
 import "./App.css";
-import HeroSection from "./components/HeroSection";
+import Home from "./pages/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <div>
-        <HeroSection />
-      </div>
-    </>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
