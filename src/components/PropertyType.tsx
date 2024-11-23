@@ -51,7 +51,7 @@ const propertyTypes = [
 
 const PropertyType = () => {
   return (
-    <div className="container mx-auto px-4 md:px-8 py-8">
+    <div className="container mx-auto px-4 md:px-8 py-8 ">
       <h2 className="text-3xl font-semibold text-center mb-8">
         Browse Property Types
       </h2>
@@ -78,7 +78,7 @@ const PropertyType = () => {
       >
         {propertyTypes.map((type) => (
           <SwiperSlide
-            className="border border-custom-green p-2.5 md:p-1.5 rounded-xl"
+            className="border border-custom-cream p-2.5 md:p-1.5 rounded-xl "
             key={type.value}
           >
             <Link

@@ -10,37 +10,43 @@ const ExploreCities = () => {
     {
       id: 1,
       name: "New York City",
-      img: "https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      img: "https://img.freepik.com/free-photo/manhattan-skyline_649448-1559.jpg",
       propertiesCount: 25,
     },
     {
       id: 2,
       name: "Los Angeles",
-      img: "https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      img: "https://homelengonextjs.vercel.app/images/location/location-2.jpg",
       propertiesCount: 30,
     },
     {
       id: 3,
       name: "Miami",
-      img: "https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      img: "https://img.freepik.com/free-photo/beautiful-miami-bayside-marketplace-scene_23-2151599584.jpg",
       propertiesCount: 18,
     },
     {
       id: 4,
       name: "Chicago",
-      img: "https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      img: "https://images.pexels.com/photos/1823681/pexels-photo-1823681.jpeg",
       propertiesCount: 22,
     },
     {
       id: 5,
       name: "San Francisco",
-      img: "https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      img: "https://img.freepik.com/free-photo/vertical-shot-golden-gate-bridge-cloudy-sky_181624-16017.jpg",
       propertiesCount: 28,
     },
     {
       id: 6,
       name: "Austin",
       img: "https://images.pexels.com/photos/421655/pexels-photo-421655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      propertiesCount: 12,
+    },
+    {
+      id: 7,
+      name: "Paris",
+      img: "https://img.freepik.com/free-photo/eiffel-tower-paris-with-gorgeous-colors-autumn_268835-828.jpg?t=st=1732394304~exp=1732397904~hmac=1864d83d98299cb0b736b82e41ade948d96c29eefca16d93b2b652b0dd3676ef&w=360",
       propertiesCount: 12,
     },
   ];
@@ -92,7 +98,7 @@ const ExploreCities = () => {
                   <Button
                     variant={"outline"}
                     size="icon"
-                    className="rounded-full hover:bg-custom-yellow   "
+                    className="rounded-full hover:bg-custom-light-green   "
                   >
                     <ArrowRight
                       size={40}

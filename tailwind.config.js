@@ -14,6 +14,8 @@ export default {
         "custom-yellow": "#D4C26B",
         "custom-cream": "#F7F2D7",
         "custom-orange": "#F25A1A",
+        "custom-light-green": "#e4fff6",
+        "lightened-green": "#019765",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

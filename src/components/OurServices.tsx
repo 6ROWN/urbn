@@ -7,7 +7,9 @@ import { Button } from "./ui/button";
 const OurServices = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-16">
-      <h3 className="text-center text-custom-orange ">OUR SERVICES</h3>
+      <h3 className="text-center font-medium text-custom-orange ">
+        OUR SERVICES
+      </h3>
 
       <h2 className="text-3xl font-semibold text-center text-gray-900 mb-12">
         What we Do?

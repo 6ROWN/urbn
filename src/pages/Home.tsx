@@ -1,5 +1,8 @@
 import ExploreCities from "@/components/ExploreCities";
 import FeaturedProperties from "@/components/FeaturedProperties";
+import Footer1 from "@/components/Footer1";
+import Footer2 from "@/components/Footer2";
+import GetStartedNow from "@/components/GetStartedNow";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import OurBenefits from "@/components/OurBenefits";
@@ -24,6 +27,9 @@ const Home = () => {
       <OurTestimonials />
       <OurTeams />
       <TrustedBySection />
+      <GetStartedNow />
+      <Footer1 />
+      <Footer2 />
     </div>
   );
 };

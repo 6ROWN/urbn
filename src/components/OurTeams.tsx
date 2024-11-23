@@ -7,6 +7,7 @@ import {
   FaFacebookF,
   FaLinkedinIn,
 } from "react-icons/fa"; // Import social icons
+import { Button } from "./ui/button";
 
 // Sample data for team members, now including contact details (email and phone)
 const teamMembers = [
@@ -14,7 +15,7 @@ const teamMembers = [
     id: 1,
     name: "John Doe",
     role: "Real Estate Agent",
-    photo: "https://via.placeholder.com/150x150", // Replace with actual image URLs
+    photo: "https://images.pexels.com/photos/32976/pexels-photo.jpg",
     email: "johndoe@example.com",
     phone: "+1 (123) 456-7890",
     social: {
@@ -28,7 +29,8 @@ const teamMembers = [
     id: 2,
     name: "Jane Smith",
     role: "Sales Manager",
-    photo: "https://via.placeholder.com/150x150", // Replace with actual image URLs
+    photo:
+      "https://img.freepik.com/free-photo/businesswoman-executive-professional-success-concept_53876-137644.jpg",
     email: "janesmith@example.com",
     phone: "+1 (987) 654-3210",
     social: {
@@ -42,7 +44,8 @@ const teamMembers = [
     id: 3,
     name: "Michael Brown",
     role: "Property Consultant",
-    photo: "https://via.placeholder.com/150x150", // Replace with actual image URLs
+    photo:
+      "https://img.freepik.com/free-photo/elegant-man-suit-arms-crossed_1149-1591.jpg",
     email: "michaelbrown@example.com",
     phone: "+1 (555) 123-4567",
     social: {
@@ -56,7 +59,8 @@ const teamMembers = [
     id: 4,
     name: "Emily Clark",
     role: "Marketing Specialist",
-    photo: "https://via.placeholder.com/150x150", // Replace with actual image URLs
+    photo:
+      "https://img.freepik.com/free-photo/happy-joyful-manager-with-tablet-posing-outside_74855-2281.jpg",
     email: "emilyclark@example.com",
     phone: "+1 (555) 765-4321",
     social: {
@@ -71,6 +75,9 @@ const teamMembers = [
 const OurTeams = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-16 bg-gray-50">
+      <div className="text-base font-medium uppercase text-center text-custom-orange mb-2">
+        Our Teams
+      </div>
       <h2 className="text-3xl font-semibold text-center text-gray-900 mb-8">
         Meet Our Agents
       </h2>
@@ -78,39 +85,40 @@ const OurTeams = () => {
         {teamMembers.map((member) => (
           <div
             key={member.id}
-            className="group bg-white shadow-xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl relative"
+            className="group bg-slate-50 shadow-xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl relative "
           >
             <img
               src={member.photo}
               alt={member.name}
-              className="w-full h-56 object-cover"
+              className="w-full h-56 object-fill"
             />
-            <div className="p-6 space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900">
-                {member.name}
-              </h3>
-              <p className="text-sm text-gray-500">{member.role}</p>
-
-              {/* Contact Info with Icons */}
-              <div className="flex items-center space-x-3 text-sm text-gray-600">
-                <a
-                  href={`mailto:${member.email}`}
-                  className="flex items-center"
-                >
-                  <FaEnvelope className="text-gray-500 mr-1" />
-                  {member.email}
-                </a>
+            <div className="flex justify-between items-start p-4 space-y-2">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-gray-500">{member.role}</p>
               </div>
-              <div className="flex items-center space-x-3 text-sm text-gray-600">
-                <a href={`tel:${member.phone}`} className="flex items-center">
-                  <FaPhoneAlt className="text-gray-500 mr-1" />
-                  {member.phone}
-                </a>
+              <div className="flex space-x-2">
+                <Button
+                  variant={"outline"}
+                  size={"icon"}
+                  className="text-custom-orange"
+                >
+                  <FaEnvelope />
+                </Button>
+                <Button
+                  variant={"outline"}
+                  size={"icon"}
+                  className="text-custom-yellow"
+                >
+                  <FaPhoneAlt />
+                </Button>
               </div>
             </div>
 
             {/* Social Icons - Displayed on Hover */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-custom-cream py-2 px-4 rounded-md">
               <div className="flex space-x-4">
                 <a
                   href={member.social.twitter}
