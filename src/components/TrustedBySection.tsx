@@ -2,18 +2,18 @@ import React from "react";
 
 // Example logos (replace these with actual logo URLs)
 const companyLogos = [
-  "https://via.placeholder.com/100x50?text=Company+1",
-  "https://via.placeholder.com/100x50?text=Company+2",
-  "https://via.placeholder.com/100x50?text=Company+3",
-  "https://via.placeholder.com/100x50?text=Company+4",
-  "https://via.placeholder.com/100x50?text=Company+5",
-  "https://via.placeholder.com/100x50?text=Company+6",
-  "https://via.placeholder.com/100x50?text=Company+7",
-  "https://via.placeholder.com/100x50?text=Company+8",
-  "https://via.placeholder.com/100x50?text=Company+9",
-  "https://via.placeholder.com/100x50?text=Company+10",
-  "https://via.placeholder.com/100x50?text=Company+11",
-  "https://via.placeholder.com/100x50?text=Company+12",
+  "/src/assets/images/one.png",
+  "/src/assets/images/two.png",
+  "/src/assets/images/three.png",
+  "/src/assets/images/four.png",
+  "/src/assets/images/five.png",
+  "/src/assets/images/one.png",
+  "/src/assets/images/one.png",
+  "/src/assets/images/one.png",
+  "/src/assets/images/one.png",
+  "/src/assets/images/one.png",
+  "/src/assets/images/one.png",
+  "/src/assets/images/one.png",
 ];
 
 const TrustedBySection = () => {

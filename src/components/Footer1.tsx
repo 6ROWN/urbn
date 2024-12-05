@@ -1,7 +1,7 @@
 import React from "react";
 
 const footerData = {
-  logo: "path-to-urbn-logo.png",
+  logo: "../assets/images/URBN.png",
   description:
     "Urbn is your one-stop real estate marketplace, offering a seamless way to buy, rent, or sell properties. Explore listings, find your perfect home, or get expert advice from trusted agents.",
   address: "101 E 129th St, East Chicago, IN 46312, US",
@@ -38,27 +38,23 @@ const footerData = {
 
 const Footer1 = () => {
   return (
-    <footer className="max-w-7xl mx-auto border border-lightened-green rounded-lg text-gray-700 py-6 mb-8">
-      <div className=" flex">
-        <div className="flex-1 p-4">
+    <footer className="max-w-7xl mx-auto border border-lightened-green rounded-lg text-gray-700 p-6 mb-8">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 ">
+        <div className="">
           {/* Logo Section */}
-          <div className="mb-6">
-            <img
-              src={footerData.logo}
-              alt="Urbn Logo"
-              className="mx-auto w-32"
-            />
+          <div className="mb-4">
+            <h1 className="text-custom-orange font-bold text-xl">URBN HOMES</h1>
           </div>
 
           {/* Description Section */}
-          <div className="mb-8">
+          <div className="">
             <p className="text- mb-4">{footerData.description}</p>
             <address>{footerData?.address}</address>
           </div>
         </div>
 
         {/* Header Links Section */}
-        <div className="flex flex-1  justify-around space-x-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-4">
           {footerData.sections.map((section, index) => (
             <div key={index}>
               <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
