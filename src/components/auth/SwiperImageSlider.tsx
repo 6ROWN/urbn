@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Button } from "@/components/ui/button";
 import { ChevronsRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const SwiperImageSlider = () => {
   const slides = [
@@ -28,8 +29,24 @@ const SwiperImageSlider = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="relative w-1/2">
+      <div className="absolute left-0 top-4 z-20 text-white bg-opacity-70 p-4 rounded-md w-full">
+        <div className="flex justify-between items-center mx-4">
+          <div className="text-xl font-bold">URBN</div>
+          <Button
+            onClick={() => navigate("/", { replace: true })}
+            className="bg-black text-white flex cursor-pointer"
+            variant={"primary"}
+            size={"sm"}
+          >
+            BACK TO WEBSITE
+            <ChevronsRight />
+          </Button>
+        </div>
+      </div>
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={0}
@@ -47,19 +64,6 @@ const SwiperImageSlider = () => {
                 className="h-full w-full object-cover rounded-md"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 z-10 rounded-md "></div>
-              <div className="absolute left-0 top-4 z-20 text-white bg-opacity-70 p-4 rounded-md w-full">
-                <div className="flex justify-between items-center mx-4">
-                  <div className="text-xl font-bold">URBN</div>
-                  <Button
-                    className="bg-black text-white flex"
-                    variant={"primary"}
-                    size={"sm"}
-                  >
-                    BACK TO WEBSITE
-                    <ChevronsRight />
-                  </Button>
-                </div>
-              </div>
               <div className="absolute inset-0 flex items-center justify-center z-20 text-white text-3xl font-bold bg-opacity-70 p-4 rounded-md w-full text-center">
                 {slide.text}
               </div>

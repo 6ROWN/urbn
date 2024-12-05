@@ -16,19 +16,30 @@ import {
   FormLabel,
   FormControl,
 } from "@/components/ui/form";
+import { auth } from "@/config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 // Define the validation schema using Zod
-const createAccountSchema = z.object({
-  name: z.string().nonempty("Name is required"),
-  email: z
-    .string()
-    .email("Please enter a valid email address")
-    .nonempty("Email is required"),
-  password: z
-    .string()
-    .min(6, "Password must be at least 6 characters")
-    .nonempty("Password is required"),
-});
+const createAccountSchema = z
+  .object({
+    name: z.string().nonempty("Name is required"),
+    email: z
+      .string()
+      .email("Please enter a valid email address")
+      .nonempty("Email is required"),
+    password: z
+      .string()
+      .min(6, "Password must be at least 6 characters")
+      .nonempty("Password is required"),
+    confirmPassword: z
+      .string()
+      .nonempty("Please confirm your password")
+      .min(6, "Confirm Password must be at least 6 characters"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "Passwords don't match",
+  });
 
 const CreateAccount = () => {
   // Initialize useForm hook with the Zod resolver for validation
@@ -37,8 +48,13 @@ const CreateAccount = () => {
   });
 
   // Handle form submission
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     console.log(data);
+    try {
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -119,10 +135,38 @@ const CreateAccount = () => {
               )}
             />
 
+            {/* Confirm Password Field */}
+            <FormField
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-gray-600">
+                    Confirm Password
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="password"
+                      placeholder="Confirm your password"
+                      className="w-full p-4 rounded-lg bg-white text-gray-800 border-none shadow-md focus:ring-4 focus:ring-green-300 transition duration-200 ease-in-out"
+                    />
+                  </FormControl>
+                  {methods.formState.errors.confirmPassword && (
+                    <p className="text-red-400 text-xs mt-1">
+                      {
+                        methods.formState.errors.confirmPassword
+                          .message as string
+                      }
+                    </p>
+                  )}
+                </FormItem>
+              )}
+            />
+
             {/* Submit Button */}
             <Button
               type="submit"
-              className="rounded-md font-medium transition-all duration-300 w-full bg-[#1c1d21] "
+              className="rounded-md font-medium transition-all duration-300 w-full bg-[#1c1d21]  hover:bg-custom-orange "
             >
               Create Account
             </Button>

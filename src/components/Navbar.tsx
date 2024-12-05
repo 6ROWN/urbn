@@ -92,17 +92,10 @@ const Navbar = () => {
 
           {/* Tabs (Login/Sign Up) */}
           <div className="hidden md:block">
-            <Tabs defaultValue="login">
+            <Tabs onClick={() => navigate("/sign-in")} defaultValue="login">
               <TabsList className="bg-custom-yellow text-white">
-                <TabsTrigger onClick={() => console.log("login")} value="login">
-                  Login
-                </TabsTrigger>
-                <TabsTrigger
-                  onClick={() => console.log("sign up")}
-                  value="sign-up"
-                >
-                  Sign up
-                </TabsTrigger>
+                <TabsTrigger value="login">Login</TabsTrigger>
+                <TabsTrigger value="sign-up">Sign up</TabsTrigger>
               </TabsList>
             </Tabs>
           </div>

@@ -97,7 +97,7 @@ const Login = () => {
             />
 
             {/* Submit Button */}
-            <Button className=" rounded-md font-medium transition-all duration-300 w-full bg-[#1c1d21]">
+            <Button className=" rounded-md font-medium transition-all duration-300 w-full bg-[#1c1d21] hover:bg-custom-orange">
               Login
             </Button>
           </form>
