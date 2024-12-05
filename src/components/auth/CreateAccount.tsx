@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/form";
 import { auth } from "@/config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useFirebaseError } from "@/hooks/useFirebaseError";
+import { FirebaseError } from "firebase/app";
 
 // Define the validation schema using Zod
 const createAccountSchema = z
@@ -44,8 +46,10 @@ const createAccountSchema = z
 const CreateAccount = () => {
   // Initialize useForm hook with the Zod resolver for validation
   const methods = useForm({
-    resolver: zodResolver(createAccountSchema), // Pass validation schema to react-hook-form
+    resolver: zodResolver(createAccountSchema),
   });
+
+  const { handleFirebaseError } = useFirebaseError();
 
   // Handle form submission
   const onSubmit = async (data: any) => {
@@ -53,7 +57,7 @@ const CreateAccount = () => {
     try {
       await createUserWithEmailAndPassword(auth, data.email, data.password);
     } catch (error) {
-      console.log(error);
+      handleFirebaseError(error as FirebaseError);
     }
   };
 

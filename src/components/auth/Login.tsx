@@ -16,28 +16,37 @@ import {
   FormLabel,
   FormControl,
 } from "@/components/ui/form";
+import { auth } from "@/config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useFirebaseError } from "@/hooks/useFirebaseError";
 
 // Define the validation schema using Zod
 const loginSchema = z.object({
   email: z
     .string()
-    .email("Please enter a valid email address") // Email validation message
-    .nonempty("Email is required"), // Ensure the email is not empty
+    .email("Please enter a valid email address")
+    .nonempty("Email is required"),
   password: z
     .string()
-    .min(6, "Password must be at least 6 characters") // Minimum length for password
-    .nonempty("Password is required"), // Ensure the password is not empty
+    .min(6, "Password must be at least 6 characters")
+    .nonempty("Password is required"),
 });
 
 const Login = () => {
+  const { handleFirebaseError } = useFirebaseError();
+
   // Initialize useForm hook with the Zod resolver for validation
   const methods = useForm({
-    resolver: zodResolver(loginSchema), // Pass validation schema to react-hook-form
+    resolver: zodResolver(loginSchema),
   });
 
   // Handle form submission
-  const onSubmit = (data: any) => {
-    console.log(data); // Handle successful form submission
+  const onSubmit = async (data: any) => {
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+    } catch (error: any) {
+      handleFirebaseError(error);
+    }
   };
 
   return (
@@ -97,14 +106,14 @@ const Login = () => {
             />
 
             {/* Submit Button */}
-            <Button className=" rounded-md font-medium transition-all duration-300 w-full bg-[#1c1d21] hover:bg-custom-orange">
+            <Button className="rounded-md font-medium transition-all duration-300 w-full bg-[#1c1d21] hover:bg-custom-orange">
               Login
             </Button>
           </form>
         </FormProvider>
       </CardContent>
       <CardFooter className="flex justify-center">
-        <p className="text-xs text-center ">
+        <p className="text-xs text-center">
           By signing in, you agree to our Terms of Service and Privacy Policy.
         </p>
       </CardFooter>

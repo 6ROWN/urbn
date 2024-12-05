@@ -1,6 +1,20 @@
 import { Button } from "@/components/ui/button";
+import { auth, googleProvider } from "@/config/firebase";
+import { signInWithPopup } from "firebase/auth";
+import { useFirebaseError } from "@/hooks/useFirebaseError";
+import { FirebaseError } from "firebase/app";
 
 const OrDividerWithGoogleSignUpButton = () => {
+  const { handleFirebaseError } = useFirebaseError();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      handleFirebaseError(error as FirebaseError);
+    }
+  };
+
   return (
     <div className="space-y-2 w-[360px]">
       {/* OR Divider */}
@@ -12,6 +26,7 @@ const OrDividerWithGoogleSignUpButton = () => {
 
       {/* Google Sign-Up Button */}
       <Button
+        onClick={handleGoogleSignIn}
         className="w-full py-3 bg-[#e7e7e7] text-black rounded-md hover:bg-black hover:text-[#e7e7e7] transition duration-300 flex justify-center items-center space-x-4"
         variant={"primary"}
         type="button"
