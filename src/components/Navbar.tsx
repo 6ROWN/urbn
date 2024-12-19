@@ -41,10 +41,10 @@ const Navbar = () => {
             <ul className="flex space-x-8">
               <li>
                 <a
-                  href="#home"
+                  href="listings"
                   className="text-custom-green hover:text-custom-green/10"
                 >
-                  Home
+                  Listings
                 </a>
               </li>
               <li>
@@ -52,7 +52,7 @@ const Navbar = () => {
                   href="#about"
                   className="text-custom-green hover:text-custom-green/10"
                 >
-                  Buy
+                  Properties
                 </a>
               </li>
               <li>
@@ -60,7 +60,7 @@ const Navbar = () => {
                   href="#services"
                   className="text-custom-green hover:text-custom-green/10"
                 >
-                  Sell
+                  Pages
                 </a>
               </li>
               <li>
@@ -68,15 +68,7 @@ const Navbar = () => {
                   href="#services"
                   className="text-custom-green hover:text-custom-green/10"
                 >
-                  Rent
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-custom-green hover:text-custom-green/10"
-                >
-                  Contact
+                  Dashboard
                 </a>
               </li>
             </ul>
